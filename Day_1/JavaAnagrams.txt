@@ -1,0 +1,61 @@
+ static boolean isAnagram(String a, String b) {
+        
+        
+        boolean flag=false;
+          a =a.toLowerCase();
+        char[] temp = a.toCharArray();
+        
+         b =b.toLowerCase();
+        char[] temp1 = b.toCharArray();
+        
+        java.util.Hashtable<Character,Integer> hm=new java.util.Hashtable<Character,Integer>();  
+        
+        if(a.length()== b.length())
+        {
+        for(int i=0;i<a.length();i++){
+            
+            boolean blnExists = hm.containsKey(temp[i]);
+            if(blnExists){
+                
+                hm.put(temp[i], hm.get(temp[i]) + 1);
+            }
+            else{
+                hm.put(temp[i],1);
+                
+            }
+        }
+ //Hashtable<String,Integer> hm1=new Hashtable<String,Integer>();  
+        
+        for(int i=0;i<b.length();i++){
+            
+            boolean blnExists = hm.containsKey(temp1[i]);
+            if(blnExists){
+                
+                hm.put(temp1[i], hm.get(temp1[i]) - 1);
+
+                
+                if(hm.get(temp1[i])==0)
+                {
+                    hm.remove(temp1[i]);
+                }
+                
+            }//outerif
+            else{
+                flag=false;
+                break;
+            }//else
+        }//for
+
+
+        
+        if(hm.size()==0)
+        {
+            flag = true;
+           
+        }//if 
+        }//if
+        else{
+        // Complete the function
+        }
+        return flag;
+    }
