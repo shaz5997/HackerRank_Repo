@@ -1,0 +1,30 @@
+import static java.lang.System.in;
+class Prime{
+
+    public void checkPrime(int... integers)
+    {
+        
+        for (int p : integers) 
+    {
+            if(p==2)
+            System.out.print(p+" ");
+        else if(p%2 != 0 && p != 1)
+        {
+            int flag=0;
+            for(int i=3;i<=(p-1)/2;i++){
+                if(p%i==0)
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+                System.out.print(p+" ");
+        }
+        else
+            System.out.print("");
+
+    }
+    System.out.println("");
+    }//checkprime
+}//class
